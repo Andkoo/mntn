@@ -44,9 +44,9 @@ const Article = ({ data }: TArticleProps) => (
     </div>
     {/* End of First column */}
     {/* Second column */}
-    <div className="h-[720px] w-[566px] flex-none">
+    <div className="h-[720px] w-[40%] flex-none">
       <Image
-        src="/images/article-1.png"
+        src={data.image}
         width={566}
         height={720}
         alt=""

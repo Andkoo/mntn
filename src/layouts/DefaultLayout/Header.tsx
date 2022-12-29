@@ -26,7 +26,6 @@ const Header = () => {
         style={{
           position: shouldBeFixed ? "fixed" : "absolute",
           background: shouldBeFixed ? "rgba(0, 0, 0, 0.9)" : "transparent",
-          // backdropFilter: shouldBeFixed ? "blur(6px)" : "none",
         }}
         initial={{ y: "-100%" }}
         animate={{ y: 0 }}

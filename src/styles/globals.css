@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-sans bg-bg;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    padding: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.62);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@layer components {
+  .grid-small {
+    @apply grid grid-cols-10 gap-x-4;
+  }
+
+  .grid-big {
+    @apply grid grid-cols-12 gap-x-4;
+  }
+
+  .hero-images img {
+    @apply absolute;
+  }
+}

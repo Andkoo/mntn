@@ -31,14 +31,7 @@ const Hero = () => {
             alt=""
           />
         </motion.div>
-        <div
-          className="absolute w-full h-full bg-gradient-to-tl"
-          style={
-            {
-              "--tw-gradient-stops": "transparent 31%, #0B1D26 109%",
-            } as React.CSSProperties
-          }
-        />
+        <div className="absolute w-full h-full bg-hero-shadow" />
         <motion.div
           className="absolute top-[464px] will-change-transform"
           style={{ y: layer1Y }}

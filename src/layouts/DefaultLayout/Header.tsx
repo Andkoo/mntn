@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useScroll } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion, useScroll } from "framer-motion";
 
 import { Container } from "~/components";
+
+const HEADER_LINKS = ["Equipment", "Blog", "About us"] as const;
+
+type THeaderLink = typeof HEADER_LINKS[number];
 
 const Header = () => {
   const { scrollY } = useScroll();
 
+  const [activeLink, setActiveLink] = useState<THeaderLink | null>(null);
   const [shouldBeFixed, setShouldBeFixed] = useState<boolean>(false);
 
   const handleScrollChange = (val: number) => {
@@ -53,32 +58,38 @@ const Header = () => {
                 className="h-[24px]"
               />
             </a>
-            <nav className="flex gap-x-2">
-              <Link
-                href="/"
-                className="rounded-md py-2 px-4 font-sans text-lg font-bold leading-[22px] text-white transition-colors hover:bg-white/10"
-              >
-                Equipment
-              </Link>
-              <Link
-                href="/"
-                className="rounded-md py-2 px-4 font-sans text-lg font-bold leading-[22px] text-white transition-colors hover:bg-white/10"
-              >
-                About us
-              </Link>
-              <Link
-                href="/"
-                className="rounded-md py-2 px-4 font-sans text-lg font-bold leading-[22px] text-white transition-colors hover:bg-white/10"
-              >
-                Blog
-              </Link>
+            <nav
+              className="flex gap-x-2"
+              onMouseLeave={() => setActiveLink(null)}
+            >
+              <LayoutGroup id="headerNav">
+                {HEADER_LINKS.map((item) => (
+                  <Link
+                    key={`headerNav-link-${item}`}
+                    href="/"
+                    onMouseEnter={() => setActiveLink(item)}
+                    className="relative rounded-md py-2 px-4 font-sans text-lg font-bold leading-[22px] text-white"
+                  >
+                    {item}
+
+                    {activeLink === item && (
+                      <motion.div
+                        layoutId="underline"
+                        className="absolute bottom-0 left-4 right-4 z-10 h-[2px] bg-accent"
+                      />
+                    )}
+                  </Link>
+                ))}
+              </LayoutGroup>
             </nav>
             <Link
               href="/"
-              className="-mx-3 flex items-center rounded-md py-2 px-3 font-sans text-[17px] font-bold leading-[21px] text-white transition-colors hover:bg-white/10"
+              className="group relative -mx-4 flex items-center rounded-md py-2 px-4 font-sans text-[17px] font-bold leading-[21px] text-white"
             >
               <Image src="/icons/account.svg" width={20} height={20} alt="" />
               <span className="mt-[2px] pl-[10px]">Account</span>
+
+              <div className="absolute bottom-0 left-4 right-4 z-10 hidden h-[2px] bg-accent group-hover:block" />
             </Link>
           </div>
         </Container>

@@ -50,7 +50,7 @@ const Article = ({ data }: TArticleProps) => {
         </p>
         <a
           href="#hero"
-          className="flex items-center gap-x-4 font-sans text-lg leading-[22px] text-accent"
+          className="flex items-center gap-x-4 font-sans text-lg font-bold leading-[22px] text-accent"
         >
           read more
           <Image

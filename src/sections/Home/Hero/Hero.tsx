@@ -31,6 +31,14 @@ const Hero = () => {
             alt=""
           />
         </motion.div>
+        <div
+          className="absolute w-full h-full bg-gradient-to-tl"
+          style={
+            {
+              "--tw-gradient-stops": "transparent 31%, #0B1D26 109%",
+            } as React.CSSProperties
+          }
+        />
         <motion.div
           className="absolute top-[464px] will-change-transform"
           style={{ y: layer1Y }}
@@ -53,14 +61,6 @@ const Hero = () => {
             alt=""
           />
         </motion.div>
-        <div
-          className="absolute w-full h-full bg-gradient-to-tl"
-          style={
-            {
-              "--tw-gradient-stops": "transparent 31%, #0B1D26 109%",
-            } as React.CSSProperties
-          }
-        />
         <div className="absolute bottom-0 right-0 left-0 z-10 h-[700px] bg-gradient-to-b from-transparent via-transparent to-[#0B1D26]" />
       </motion.div>
       {/* End of Images */}

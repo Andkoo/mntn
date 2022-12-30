@@ -48,18 +48,25 @@ const Article = ({ data }: TArticleProps) => {
         <p className="font-sans text-lg font-bold leading-8 text-white pb-7">
           {data.description}
         </p>
-        <a
+        <motion.a
+          whileHover="hovered"
           href="#hero"
-          className="flex items-center gap-x-4 font-sans text-lg font-bold leading-[22px] text-accent"
+          className="flex items-center gap-x-4 font-sans text-lg font-bold leading-[22px] text-accent hover:underline"
         >
           read more
-          <Image
-            src="/icons/arrow-right-accent.svg"
-            width={24}
-            height={16}
-            alt=""
-          />
-        </a>
+          <motion.span
+            variants={{
+              hovered: { x: 3 },
+            }}
+          >
+            <Image
+              src="/icons/arrow-right-accent.svg"
+              width={24}
+              height={16}
+              alt=""
+            />
+          </motion.span>
+        </motion.a>
       </motion.div>
       {/* End of First column */}
 

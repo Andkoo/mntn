@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
@@ -10,13 +10,17 @@ const Header = () => {
 
   const [shouldBeFixed, setShouldBeFixed] = useState<boolean>(false);
 
-  useEffect(() => {
-    setShouldBeFixed(scrollY.get() > window.innerHeight);
+  const handleScrollChange = (val: number) => {
+    if (val < window.innerHeight - 50 && shouldBeFixed) {
+      setShouldBeFixed(false);
+    } else if (val >= window.innerHeight - 50 && !shouldBeFixed) {
+      setShouldBeFixed(true);
+    }
+  };
 
-    return scrollY.on("change", () => {
-      setShouldBeFixed(scrollY.get() > window.innerHeight);
-    });
-  }, []);
+  useEffect(() => {
+    return scrollY.on("change", handleScrollChange);
+  }, [shouldBeFixed]);
 
   return (
     <AnimatePresence initial={false}>
@@ -46,6 +50,7 @@ const Header = () => {
                 width={108}
                 height={24}
                 alt="MNTN Logo"
+                className="h-[24px]"
               />
             </a>
             <nav className="flex gap-x-2">
@@ -82,4 +87,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

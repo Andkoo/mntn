@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply font-sans bg-bg;
+    @apply overflow-x-hidden font-sans bg-bg;
   }
 
   ::-webkit-scrollbar {
@@ -39,9 +39,5 @@
 
   .grid-big {
     @apply grid grid-cols-12 gap-x-4;
-  }
-
-  .hero-images img {
-    @apply absolute;
   }
 }

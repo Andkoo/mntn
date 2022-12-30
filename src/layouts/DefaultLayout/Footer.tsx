@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -87,4 +88,4 @@ const Footer = () => (
   </Container>
 );
 
-export default Footer;
+export default React.memo(Footer);

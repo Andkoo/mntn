@@ -2,6 +2,7 @@ import { type AppType } from "next/dist/shared/lib/utils";
 import localFont from "@next/font/local";
 
 import { DefaultLayout } from "~/layouts";
+import { StickyNav } from "~/components";
 
 import "../styles/globals.css";
 
@@ -35,20 +36,19 @@ const gilroy = localFont({
   ],
 });
 
-const MyApp: AppType = ({ Component, pageProps }) => {
-  return (
-    <>
-      <style jsx global>{`
-        :root {
-          --font-sans: ${gilroy.style.fontFamily};
-          --font-serif: ${chronicleDisplay.style.fontFamily};
-        }
-      `}</style>
-      <DefaultLayout>
-        <Component {...pageProps} />
-      </DefaultLayout>
-    </>
-  );
-};
+const MyApp: AppType = ({ Component, pageProps }) => (
+  <>
+    <style jsx global>{`
+      :root {
+        --font-sans: ${gilroy.style.fontFamily};
+        --font-serif: ${chronicleDisplay.style.fontFamily};
+      }
+    `}</style>
+    <StickyNav />
+    <DefaultLayout>
+      <Component {...pageProps} />
+    </DefaultLayout>
+  </>
+);
 
 export default MyApp;

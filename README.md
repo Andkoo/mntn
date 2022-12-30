@@ -1,3 +1,9 @@
+# MNTN
+
+Frontend coding challenge found on the internet: [Figma link](https://www.figma.com/file/hMVtKRVHUxyY03knIrHkgG/MNTN---Landing-Page?node-id=0%3A1&t=fbH6Z5w2FqQWINwv-0)
+
+Created with [create-t3-app](https://create.t3.gg/)
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.

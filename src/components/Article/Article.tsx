@@ -37,7 +37,7 @@ const Article = ({ data }: TArticleProps) => {
         className="flex flex-col pl-[150px]"
       >
         <div className="relative flex items-center gap-x-8 font-sans text-lg font-extrabold uppercase leading-[22px] tracking-[6px] text-accent before:h-[2px] before:w-[72px] before:bg-accent">
-          <div className="absolute top-1/2 -left-36 -translate-y-1/2 font-sans text-[240px] font-bold leading-[240px] text-white opacity-10">
+          <div className="absolute top-1/2 -left-36 -translate-y-1/2 select-none font-sans text-[240px] font-bold leading-[240px] text-white opacity-10">
             {data.number < 10 ? `0${data.number}` : data.number}
           </div>
           {data.label}

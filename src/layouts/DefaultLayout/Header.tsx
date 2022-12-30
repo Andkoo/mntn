@@ -31,9 +31,9 @@ const Header = () => {
           position: shouldBeFixed ? "fixed" : "absolute",
           background: shouldBeFixed ? "rgba(0, 0, 0, 0.9)" : "transparent",
         }}
-        initial={{ y: "-100%" }}
-        animate={{ y: 0 }}
-        exit={{ y: "-100%" }}
+        initial={{ y: "-100%", z: "10px" }}
+        animate={{ y: "0%", z: "10px" }}
+        exit={{ y: "-100%", z: "10px" }}
         transition={{ ease: "linear", duration: 0.2 }}
       >
         <Container big>
